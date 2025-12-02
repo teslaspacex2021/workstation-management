@@ -91,8 +91,8 @@ export default function OfficesPage() {
     } else {
       // 新增
       const newOffice: Office = {
-        id: `${Date.now()}`,
         ...formData,
+        id: `${Date.now()}`,
         propertyName: selectedProperty?.name || "",
       } as Office;
       setOffices([...offices, newOffice]);

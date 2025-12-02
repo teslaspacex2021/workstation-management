@@ -55,8 +55,8 @@ export default function PropertiesPage() {
     } else {
       // 新增
       const newProperty: Property = {
-        id: `${Date.now()}`,
         ...formData as Property,
+        id: `${Date.now()}`,
       };
       setProperties([...properties, newProperty]);
     }
