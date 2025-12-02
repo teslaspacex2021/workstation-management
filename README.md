@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 省公司综合生产楼房间及工位信息管理系统
 
-## Getting Started
+一个基于 Next.js 14 和 shadcn/ui 构建的现代化工位信息管理系统。
 
-First, run the development server:
+## ✨ 功能特性
+
+### 1. 办公地点信息管理
+- **房产信息管理**：支持纳管房产编号、房产名称、房产类型、地区、地址、面积、楼层数等信息
+- **办公区信息管理**：将房产数据规划为版工具，支持每个房产每个楼层规划多个办公区
+- **工位规划信息管理**：支持跨房产、楼层进行工位规划，将工位规划关联到部门操作员
+
+### 2. 工位分配管理
+- **工位分配**：支持导入人员信息（本部人员及外派人员），管理员选中工位分配给指定员工
+- **员工管理**：批量导入和管理员工信息
+- **数据处理**：批量计人员、工位信息调整
+
+### 3. 大屏与报表
+- **房间和工位大屏展示**：工位数据转换成图形进行展示，包含开放区域的办公区展示（列、排）、独立办公室、特殊办公室
+- **常规报表展现**：办公用房报表，展现序号、公司名称、分公司名称、房产证、房产名称、建筑面积、房产地址等信息
+
+## 🛠️ 技术栈
+
+- **框架**：Next.js 14 (App Router)
+- **语言**：TypeScript
+- **样式**：Tailwind CSS
+- **UI组件**：shadcn/ui
+- **图标**：Lucide React
+- **包管理**：pnpm
+
+## 🚀 快速开始
+
+### 安装依赖
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 启动开发服务器
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+访问 [http://localhost:3000](http://localhost:3000) 查看应用。
 
-## Learn More
+### 构建生产版本
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm build
+pnpm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 项目结构
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/                      # Next.js App Router 页面
+│   ├── page.tsx             # 首页概览
+│   ├── properties/          # 房产信息管理
+│   ├── offices/             # 办公区信息管理
+│   ├── workstations/        # 工位规划信息管理
+│   ├── assignments/         # 工位分配管理
+│   ├── employees/           # 员工管理
+│   ├── dashboard/           # 大屏展示
+│   └── reports/             # 报表展示
+├── components/
+│   ├── ui/                  # shadcn/ui 组件
+│   └── layout/              # 布局组件
+│       └── sidebar.tsx      # 侧边栏导航
+├── lib/
+│   ├── utils.ts            # 工具函数
+│   └── mock-data.ts        # 模拟数据
+└── types/
+    └── index.ts            # TypeScript 类型定义
+```
 
-## Deploy on Vercel
+## 🎨 设计特点
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **现代化UI**：采用 shadcn/ui 组件库，界面简洁美观
+- **响应式设计**：支持多种屏幕尺寸
+- **深色模式支持**：自动适配系统主题
+- **紧凑布局**：信息密度高，便于快速浏览
+- **图形化展示**：大屏页面将工位数据转换为直观的图形展示
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📊 数据模型
+
+系统包含以下核心数据模型：
+
+- **Property**：房产信息
+- **Office**：办公区信息
+- **Workstation**：工位信息
+- **Employee**：员工信息
+- **Assignment**：工位分配记录
+- **Report**：报表数据
+
+## 🔒 注意事项
+
+- 本系统使用模拟数据，无需后端和数据库
+- 所有数据操作仅在前端进行，刷新页面后数据会重置
+- 适用于演示和原型展示
+
+## 📝 开发说明
+
+### 添加新功能
+
+1. 在 `src/types/index.ts` 中定义数据类型
+2. 在 `src/lib/mock-data.ts` 中添加模拟数据
+3. 在 `src/app/` 下创建新的页面路由
+4. 在 `src/components/layout/sidebar.tsx` 中添加导航菜单
+
+### 自定义样式
+
+项目使用 Tailwind CSS，可以在 `src/app/globals.css` 中自定义 CSS 变量和主题配置。
+
+## 📄 许可证
+
+MIT License
+
+## 👥 作者
+
+省公司综合生产楼房间及工位信息管理系统 v1.0
